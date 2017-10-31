@@ -115,6 +115,7 @@ int wcnss_xo_auto_detect_enabled(void);
 u32 wcnss_get_wlan_rx_buff_count(void);
 int wcnss_wlan_iris_xo_mode(void);
 void wcnss_flush_work(struct work_struct *work);
+void wcnss_flush_delayed_work(struct delayed_work *dwork);
 int wcnss_get_iris_name(char *iris_version);
 void wcnss_dump_stack(struct task_struct *task);
 #ifdef CONFIG_WCNSS_REGISTER_DUMP_ON_BITE
