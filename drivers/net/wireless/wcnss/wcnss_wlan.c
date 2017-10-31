@@ -2990,6 +2990,18 @@ fail_gpio_res:
 	return ret;
 }
 
+/* wlan prop driver cannot invoke cancel_work_sync
+ * function directly, so to invoke this function it
+ * call wcnss_flush_work function
+ */
+void wcnss_flush_work(struct work_struct *work)
+{
+	struct work_struct *cnss_work = work;
+	if (cnss_work != NULL)
+		cancel_work_sync(cnss_work);
+}
+EXPORT_SYMBOL(wcnss_flush_work);
+
 /* wlan prop driver cannot invoke show_stack
  * function directly, so to invoke this function it
  * call wcnss_dump_stack function
